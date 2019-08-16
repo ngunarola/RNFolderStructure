@@ -15,7 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import NetInfo from "@react-native-community/netinfo";
 import {
   Header,
   LearnMoreLinks,
@@ -29,6 +29,16 @@ import { PersistGate } from 'redux-persist/integration/react';
 import AppNavigation from './AppNavigation';
 
 export class App extends React.Component {
+  componentDidMount() {
+    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+  }
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+  }
+  handleConnectivityChange = async isConnected => {
+    global.isConnected = await isConnected
+    await this.setState({ isConnected, hideNotice: false });    
+  }
   render() {
     return (
       <Fragment>

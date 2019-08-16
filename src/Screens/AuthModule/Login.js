@@ -40,6 +40,7 @@ class LoginScreen extends Component {
     }
     // =======>>>>>>>> RENDER INITIALIZE <<<<<<<<=======
     render() {
+        console.log(global.isConnected, "global.isConnected")
         return (
             <SafeAreaView style={AuthStyle.container}>
                 <ScrollView contentContainerStyle={AuthStyle.container} keyboardShouldPersistTaps={'handled'}>
@@ -47,12 +48,12 @@ class LoginScreen extends Component {
                         <TouchableOpacity style={{ shadowColor: '#ccc', elevation: 2, shadowOffset: { width: 0, height: 5 }, shadowRadius: 10, borderRadius: 5, shadowOpacity: 0.32, height: 40, justifyContent: 'center', alignItems: 'center', width: 155, backgroundColor: Colors.ORANGE, margin: 14 }} onPress={this.onLogin.bind(this)}>
                             <Text style={{ color: Colors.WHITE }}>LOGIN</Text>
                         </TouchableOpacity>
-                        <View style={{ backgroundColor: Colors.WHITE, borderWidth: 3, borderColor: Colors.BLUE, height: 40, borderRadius: 20, width: 40, shadowColor: '#ccc', elevation: 2, shadowOffset: {width: 0, height: 5 }, shadowRadius: 10, shadowOpacity: 0.32 }}>
+                        <View style={{ backgroundColor: Colors.WHITE, borderWidth: 3, borderColor: Colors.BLUE, height: 40, borderRadius: 20, width: 40, shadowColor: '#ccc', elevation: 2, shadowOffset: { width: 0, height: 5 }, shadowRadius: 10, shadowOpacity: 0.32 }}>
 
                         </View>
-                    <TouchableOpacity style={{ shadowColor: '#ccc', elevation: 2, shadowOffset: { width: 0, height: 5 }, shadowRadius: 10, borderRadius: 5, shadowOpacity: 0.32, height: 40, justifyContent: 'center', alignItems: 'center', width: 155, backgroundColor: Colors.GREEN, margin: 14 }} onPress={() => this.navigateTo('SignUp')}>
-                        <Text style={{ color: Colors.WHITE }}>SIGN UP</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity style={{ shadowColor: '#ccc', elevation: 2, shadowOffset: { width: 0, height: 5 }, shadowRadius: 10, borderRadius: 5, shadowOpacity: 0.32, height: 40, justifyContent: 'center', alignItems: 'center', width: 155, backgroundColor: Colors.GREEN, margin: 14 }} onPress={() => this.navigateTo('SignUp')}>
+                            <Text style={{ color: Colors.WHITE }}>SIGN UP</Text>
+                        </TouchableOpacity>
 
                     </View>
                 </ScrollView>
