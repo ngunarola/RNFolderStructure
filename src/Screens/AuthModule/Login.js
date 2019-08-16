@@ -25,22 +25,22 @@ class LoginScreen extends Component {
 
     // =======>>>>>>>> LIFE CYCLE METHODS <<<<<<<<=======
     componentWillMount() {
-
+        
     }
     componentWillReceiveProps(nextProps) {
+        
 
     }
 
     // =======>>>>>>>> FUNCTIONS DECLARATION <<<<<<<<=======
     onLogin() {
-        console.log("Login Press")
+        
     }
     navigateTo(screen) {
         this.props.navigation.navigate(screen)
     }
     // =======>>>>>>>> RENDER INITIALIZE <<<<<<<<=======
     render() {
-        console.log(global.isConnected, "global.isConnected")
         return (
             <SafeAreaView style={AuthStyle.container}>
                 <ScrollView contentContainerStyle={AuthStyle.container} keyboardShouldPersistTaps={'handled'}>
@@ -65,7 +65,8 @@ class LoginScreen extends Component {
 // =======>>>>>>>> PROPS CONNECTION <<<<<<<<=======
 const mapStateToProps = (res) => {
     return {
-        Auth: res.Auth
+        Auth: res.Auth,
+        IsNetwork: res.Common.isNetworkAvailable
     };
 }
 

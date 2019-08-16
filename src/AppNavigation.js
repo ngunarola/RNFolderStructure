@@ -1,6 +1,7 @@
 import Login from "./Screens/AuthModule/Login";
 import SignUp from "./Screens/AuthModule/SignUp";
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import SplashScreen from "./Screens/SplashScreen";
 
 // const TabNavigator = createBottomTabNavigator({
 //     Scanner: Scanner,
@@ -37,12 +38,12 @@ import { createStackNavigator, createAppContainer, createBottomTabNavigator } fr
 // );
 
 const AppNavigator = createStackNavigator({
-    // SplashScreen: {
-    //     screen: SplashScreen,
-    //     navigationOptions: {
-    //         header: null
-    //     }
-    // },
+    SplashScreen: {
+        screen: SplashScreen,
+        navigationOptions: {
+            header: null
+        }
+    },
     Login: {
         screen: Login,
         navigationOptions: {
@@ -57,7 +58,7 @@ const AppNavigator = createStackNavigator({
     }
 },
     {
-        initialRouteName: 'Login'
+        initialRouteName: 'SplashScreen'
     }
 );
 

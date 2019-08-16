@@ -1,10 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+// =======>>>>>>>> LIBRARIES <<<<<<<<=======
 
 import React, { Fragment } from 'react';
 import {
@@ -15,30 +9,36 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import NetInfo from "@react-native-community/netinfo";
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import { Provider } from 'react-redux';
-import { store, persistor } from './Redux/Store';
 import { PersistGate } from 'redux-persist/integration/react';
+
+
+// =======>>>>>>>> ASSETS <<<<<<<<=======
+
+import { store, persistor } from './Redux/Store';
 import AppNavigation from './AppNavigation';
 
+// =======>>>>>>>> CLASS DECLARATION <<<<<<<<=======
+
 export class App extends React.Component {
+  // =======>>>>>>>> STATES DECLARATION <<<<<<<<=======
+
+
+  // =======>>>>>>>> LIFE CYCLE METHODS <<<<<<<<=======
+
   componentDidMount() {
-    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+    console.disableYellowBox = true
   }
   componentWillUnmount() {
-    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+
   }
-  handleConnectivityChange = async isConnected => {
-    global.isConnected = await isConnected
-    await this.setState({ isConnected, hideNotice: false });    
-  }
+
+  // =======>>>>>>>> FUNCTIONS DECLARATION <<<<<<<<=======
+
+
+
+  // =======>>>>>>>> RENDER INITIALIZE <<<<<<<<=======
+
   render() {
     return (
       <Fragment>
@@ -54,44 +54,4 @@ export class App extends React.Component {
     );
   };
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
-
 export default App;
